@@ -26,7 +26,7 @@ export default function RootLayout({
       )}>
         <Providers attribute="class" defaultTheme="system" enableSystem>
           <div className="flex min-h-screen flex-col items-center">
-            <div className="mt-24 flex w-full max-w-screen-sm flex-1 flex-col px-5 md:px-0 lg:mt-36">
+            <div className="mt-8 flex w-full max-w-screen-sm flex-1 flex-col px-5 sm:mt-14 md:px-0 lg:mt-20">
               <Header />
               <main>{children}</main>
             </div>
