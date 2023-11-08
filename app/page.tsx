@@ -11,7 +11,8 @@ export default async function Home() {
 		<>
 			<p className='text-muted-foreground'>
 				<Balancer>
-					Welcome to my digital space! I&apos;m mickasmt, a web development enthusiast with a passion for user interfaces. On my journey to becoming a Product Manager.
+					{/* Hey, what&apos;s up! I&apos;m mickasmt, a web development enthusiast with a passion for user interfaces. On my journey to becoming a Product Manager. */}
+					Hi there! I&apos;m mickasmt, a web dev enthusiast with a passion for user interfaces. I&apos;m on my way to becoming a Product Manager. What&apos;s up with you?
 				</Balancer>
 			</p>
 

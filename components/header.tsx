@@ -14,7 +14,7 @@ export function Header() {
 
         <div>
           <h1 className="text-3xl font-bold">mickasmt</h1>
-          <p className="text-muted-foreground">Open Source Designer</p>
+          <p className="text-muted-foreground">Fullstack Developer | Future Product Manager</p>
         </div>
       </div>
     </div>
