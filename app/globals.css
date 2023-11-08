@@ -1,7 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
+
+@font-face {
+  font-display: swap;
+  font-family: "Satoshi";
+  font-style: normal;
+  font-weight: 300 900;
+  src: url(/fonts/satoshi.woff2) format("woff2"),url(/fonts/satoshi.woff) format("woff"),url(/fonts/satoshi.ttf) format("truetype")
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -65,12 +73,13 @@
     --ring: 240 4.9% 83.9%;
   }
 }
- 
+
 @layer base {
   * {
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-lg text-foreground font-medium;
+    font-family: "Satoshi"!important;
   }
 }
