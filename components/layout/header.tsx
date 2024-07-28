@@ -1,16 +1,20 @@
-import Image from "next/image";
 import Link from "next/link";
+import avatar from "@/public/avatar.png";
+
+import BlurImage from "@/components/blur-image";
 
 export function Header() {
   return (
     <div className="flex items-center gap-4 py-4">
-      <Link href="/">
-        <Image
-          className="size-16 shrink-0 overflow-hidden rounded-full object-cover"
-          src="/avatar.png"
+      <Link href="/" className="size-16 shrink-0 overflow-hidden rounded-full">
+        <BlurImage
+          className="size-full object-cover"
+          src={avatar}
           alt="avatar"
           width={100}
           height={100}
+          priority
+          placeholder="blur"
         />
       </Link>
 
