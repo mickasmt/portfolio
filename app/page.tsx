@@ -14,7 +14,7 @@ export default async function Home() {
         user interfaces. Check out my{" "}
         <Link
           className="font-semibold underline underline-offset-2 transition hover:text-primary"
-          href="ui-hub.mickasmt.com"
+          href="https://ui-hub.mickasmt.com"
           target="_blank"
         >
           UI Hub
