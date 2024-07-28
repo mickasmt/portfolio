@@ -1,46 +1,57 @@
-import { siteConfig } from '@/config/site';
-import { getPopularRepos } from '@/lib/utils';
-import { Repo } from '@/types';
-import Link from 'next/link';
-import Balancer from 'react-wrap-balancer'
+import Link from "next/link";
+import { Repo } from "@/types";
+
+import { siteConfig } from "@/config/site";
+import { getPopularRepos } from "@/lib/utils";
 
 export default async function Home() {
-	const popularRepos = await getPopularRepos();
+  const popularRepos = await getPopularRepos();
 
-	return (
-		<>
-			<p className='text-muted-foreground'>
-				<Balancer>
-					{/* Hey, what&apos;s up! I&apos;m mickasmt, a web development enthusiast with a passion for user interfaces. On my journey to becoming a Product Manager. */}
-					Hi there! I&apos;m mickasmt, a web dev enthusiast with a passion for user interfaces. I&apos;m on my way to becoming a Product Manager. What&apos;s up with you?
-				</Balancer>
-			</p>
+  return (
+    <div className="mt-3">
+      <p className="text-pretty text-lg font-medium text-muted-foreground">
+        Hi there! I&apos;m mickasmt, a open source enthusiast with a passion for
+        user interfaces. Check out my{" "}
+        <Link
+          className="font-semibold underline underline-offset-2 transition hover:text-primary"
+          href="ui-hub.mickasmt.com"
+          target="_blank"
+        >
+          UI Hub
+        </Link>{" "}
+        for free component experiments.
+      </p>
 
-			<h2 className="mt-10 md:mt-14 mb-3 text-2xl font-bold">Projects</h2>
+      <h2 className="mb-3 mt-10 text-2xl font-bold md:mt-14">Projects</h2>
 
-			<p className='text-muted-foreground'>
-				<Balancer>
-					Below are some of projects I&apos;ve worked on. You can find most of my work
-					on my <Link className="underline hover:text-primary duration-200" href={siteConfig.links.github}>GitHub</Link>.
-				</Balancer>
-			</p>
+      <p className="text-balance text-lg font-medium text-muted-foreground">
+        Below are some of projects I&apos;ve worked on. You can find most of my
+        work on my{" "}
+        <Link
+          className="font-semibold underline underline-offset-2 transition hover:text-primary"
+          href={siteConfig.links.github}
+        >
+          GitHub
+        </Link>
+        .
+      </p>
 
-			<ul className="-mx-4 mt-8 flex flex-col gap-6 px-1 sm:px-0">
-				{popularRepos.map((repo: Repo) => (
-					<li key={repo.id}>
-						<Link
-							className="-my-2 flex select-none items-center gap-2.5 rounded-xl px-4 py-2 transition-colors duration-300 hover:bg-accent"
-							href={repo.html_url}
-							target="_blank"
-						>
-							<p>{repo.name}</p>
-							<span className="h-px flex-1 bg-muted-foreground/20" />
+      <ul className="-mx-4 mt-8 flex flex-col gap-5 px-1 sm:px-0">
+        {popularRepos.map((repo: Repo) => (
+          <li key={repo.id}>
+            <Link
+              className="-my-2 flex select-none items-center gap-2.5 rounded-xl px-4 py-2 text-lg font-medium transition-colors duration-300 hover:bg-accent"
+              href={repo.html_url}
+              target="_blank"
+            >
+              <p>{repo.name}</p>
+              <span className="h-px flex-1 bg-muted-foreground/20" />
 
-							<p>{repo.stargazers_count} stars</p>
-						</Link>
-					</li>
-				))}
-			</ul>
-		</>
-	)
+              <p>{repo.stargazers_count} stars</p>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }

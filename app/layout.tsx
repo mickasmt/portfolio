@@ -1,39 +1,46 @@
-import { Footer } from '@/components/footer'
-import { cn } from '@/lib/utils'
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import './globals.css'
-import { Providers } from './providers'
-import { Header } from '@/components/header'
+import type { Metadata } from "next";
+import { fontInter, fontSatoshi } from "@/assets/fonts";
 
-const inter = Inter({ subsets: ['latin'] })
+import { cn } from "@/lib/utils";
+import { Footer } from "@/components/layout/footer";
+
+import "./globals.css";
+
+import { Header } from "@/components/layout/header";
+import { TailwindIndicator } from "@/components/layout/tailwind-indicator";
+
+import { Providers } from "./providers";
 
 export const metadata: Metadata = {
   title: "mickasmt",
   description: "mickasmt's portfolio",
-}
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={cn(
-        "min-h-screen bg-background font-sans antialiased",
-        inter.className
-      )}>
+      <body
+        className={cn(
+          "grid min-h-dvh grid-rows-[1fr_auto] font-satoshi antialiased",
+          fontInter.variable,
+          fontSatoshi.variable,
+        )}
+      >
         <Providers attribute="class" defaultTheme="system" enableSystem>
-          <div className="flex min-h-screen flex-col items-center">
-            <div className="mt-8 flex w-full max-w-screen-sm flex-1 flex-col px-4 sm:mt-14 md:px-0 lg:mt-20">
+          <main className="mx-auto flex w-full max-w-2xl flex-col px-4 md:px-0">
+            <div className="mb-20 mt-10 flex w-full flex-col lg:mt-16">
               <Header />
-              <main>{children}</main>
+              {children}
             </div>
-            <Footer />
-          </div>
+          </main>
+          <Footer />
+          <TailwindIndicator />
         </Providers>
       </body>
     </html>
-  )
+  );
 }

@@ -1,7 +1,8 @@
-import { env } from "@/env.mjs";
 import { Repo } from "@/types";
-import { type ClassValue, clsx } from "clsx";
+import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
+
+import { env } from "@/env.mjs";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -20,7 +21,7 @@ export async function getPopularRepos() {
       }),
       // data will revalidate every hour
       next: { revalidate: 3600 },
-    }
+    },
   )
     .then((res) => res.json())
     .catch((e) => console.log(e));
@@ -28,6 +29,6 @@ export async function getPopularRepos() {
   const filteredRepos = repos
     .filter((repo) => repo.stargazers_count >= 35)
     .sort((a, b) => b.stargazers_count - a.stargazers_count);
-		
+
   return filteredRepos;
 }
